@@ -1,65 +1,115 @@
-import Image from "next/image";
+"use client";
 
+import Image from "next/image";
+import { useState } from "react";
+import styles from "./main.module.css";
 export default function Home() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("sending");
+
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to subscribe");
+      }
+
+      setEmail("");
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
+  }
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <main className={styles.main}>
+      <div className={styles.header}>
+        <div className={styles.leftHeader}>
+          <p className={styles.subtitle}>lola from hack club presents</p>
+          <h1 className={styles.title}>circazine</h1>
+          <p className={styles.subtitle}>spend an afternoon drawing a circuit, <span style={{ textDecoration: "underline" }}>get prizes.</span> </p>
+        </div>
+        <div className = {styles.rightHeader}>
+          <p>launches july 17th</p>
+          <Image
+          src="/book.png"
+          alt="Book"
+          width={800}
+          height={800}
+          className={styles.book}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </div>
+      <div className={styles.signUp}>
+        <form className={styles.signUpText} onSubmit={handleSubmit}>
+          <div className={styles.signUpImage}>
+        
+        <p> get on the email list! </p>
         </div>
-      </main>
+      
+        <input
+          type="email"
+          placeholder={status ==="sent"? "you're on the list!" : "you@email.com"}
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          required
+        />
+        <button type="submit" className={styles.submitImage} disabled={status === "sending"}>
+          <p>{status === "sending" ? "sending..." : "submit"}</p>
+        </button>
+      </form>
+      </div>
+      <div className={styles.info}>
+        <div className = {styles.leftPaper}>
+          <p>prizes:</p>
+         <Image
+         src="/prizes.png"
+         alt="Prizes"
+         width={500}
+         height={400}
+        />
+          <p>stickers! mini computers! books! and a circazine with your own circuit!</p>
+        </div>
+        <div className = {styles.rightPaper}>
+          <p>what can i do until launch?</p>
+          <p>1. join the slack<a href="https://app.slack.com/client/E09V59WQY1E/C0BJ4EF228G" target="_blank" rel="noopener noreferrer"> #circazine</a></p>
+          <p>2. look at <a href="https://github.com/alaricmoore/MiniEngineeringNotebooks/blob/main/Engineer's%20Mini-Notebook%20-%20Basic%20Semiconductor%20Circuits.pdf" target="_blank" rel="noopener noreferrer">forrest mim's mini engineering notebooks</a></p>
+          <p>3. send lola@hackclub.com your ideas (or a funny joke?) </p>
+          <p>4. wait until july 17th to start drawing!</p>
+        </div>
+      </div>
+      <div className={styles.info}>
+        <div className={styles.leftPaper}>
+          <p>after july 17th:</p>
+          <p>1. draw the circuit on your computer</p>
+          <p>2. make sure it works</p>
+          <p>3. put it all on a piece of paper</p>
+          <p>4. submit!</p>
+        </div>
+        <div className={styles.rightPaper}>
+          <p>need inspiration?</p>
+          <p>1. sketch a tiny game</p>
+          <p>2. make something that lights up</p>
+          <p>3. build a doodle with buttons</p>
+          <p>4. keep it weird</p>
+        </div>
+      </div>
+      <div className={styles.footer}>
+        <div className={styles.footerLeft}>
+    <h1>made with {'<3'} from teens </h1>
+    <h1>at hack club</h1>
     </div>
+        </div>
+    </main>
   );
 }

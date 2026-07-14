@@ -1,0 +1,324 @@
+.main {
+    display: flex;
+    min-height: 100vh;
+    height: auto;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    padding-bottom: 0;
+    background-image: url('/background.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@font-face {
+    font-family: 'ComingSoon';
+    src: url('/ComingSoon.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'ChickenScratch';
+    src: url('/ChickenScratch.ttf') format('truetype');
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+.leftHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: auto;
+    width: 40%;
+    padding-left: 2rem;
+    z-index: 3;
+}
+
+.leftHeader > * {
+    animation: fadeUp 700ms ease-out both;
+}
+
+.leftHeader > *:nth-child(2) {
+    animation-delay: 120ms;
+}
+
+.leftHeader > *:nth-child(3) {
+    animation-delay: 240ms;
+}
+
+.subtitle {
+    font-size: clamp(1rem, 2.8vw, 2.25rem);
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    font-family: 'ComingSoon', sans-serif;
+}
+
+.title {
+    font-size: clamp(2.75rem, 8vw, 6rem);
+    color: #000000;
+    font-family: 'ChickenScratch', sans-serif;
+    -webkit-text-stroke: 2px black;
+}
+
+.main a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
+    cursor: pointer;
+}
+
+.main a:hover {
+    color: rgb(12, 154, 31);
+}
+
+.leftHeader .subtitle {
+    line-height: 1; 
+}
+
+.rightHeader {
+    padding-top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: 50%;
+}
+
+.rightHeader > p {
+    animation: fadeUp 700ms ease-out 180ms both;
+}
+
+.rightHeader p {
+    font-size: clamp(0.9rem, 2.2vw, 1.5rem);
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-family: 'ComingSoon', sans-serif;
+    transform: rotate(10deg)
+}
+
+.book {
+    animation: bookWobble 5.5s ease-in-out infinite;
+    transform-origin: 50% 70%;
+}
+
+.signUp {
+    width: clamp(18rem, 55vw, 34rem);
+   
+    display: flex;
+    justify-content: center;
+    animation: fadeUp 750ms ease-out 260ms both;
+}
+
+.signUpText {
+    background-image: url('/paper_strip.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1.5rem;
+    min-height: 5rem;
+}
+
+.signUpText input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: 'ComingSoon', sans-serif;
+    font-size: clamp(0.8rem, 1.2vw, 1.5rem);
+    color: #000000;
+   text-align: center;
+}
+.signUpImage {
+    position: absolute;
+    background-image: url('/tape.png');
+        background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+    top: -40px;
+    left: -50px;
+    display: flex;
+    width: 60%;
+    height: 60%;
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
+    align-items: center;
+    justify-content: center;
+    color:#000000;
+    font-family: 'ComingSoon', sans-serif;
+}
+
+.submitImage {
+    position: absolute;
+    background-image: url('/tape.png');
+        background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+    top: 40px;
+    right: -50px;
+    display: flex;
+    width: 40%;
+    height: 60%;
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
+    align-items: center;
+    justify-content: center;
+    color:#000000;
+    font-family: 'ComingSoon', sans-serif;
+    text-decoration: underline;
+}
+
+
+.submitImage:hover {
+    color: rgb(12, 154, 31);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+.info {
+    margin: 5% 0%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: auto;
+    width: 100%;
+    gap: 1rem;
+    font-family: 'ComingSoon', sans-serif;
+    color:#000000;
+    font-size: clamp(0.9rem, 1.8vw, 6rem);
+    animation: fadeUp 750ms ease-out 320ms both;
+}
+
+.leftPaper {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    width: 35%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    padding: 2rem 2rem;
+        margin-bottom: 10%;
+
+}
+
+.leftPaper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/paper.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    z-index: 0;
+}
+
+.leftPaper > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+
+.rightPaper {
+    margin-top: 10%;
+
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    width: 35%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    padding: 2rem 2rem;
+   
+}
+
+.rightPaper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/paper.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    z-index: 0;
+}
+
+.rightPaper > * {
+    position: relative;
+    z-index: 1;
+}
+
+.footer {
+    background-image: url('/graph_paper.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin-top: auto;
+    height: 20rem;
+    width: 100%;
+    padding: 1rem 2rem;
+    font-family: 'ChickenScratch', sans-serif;
+    color:#000000;
+    font-size: clamp(0.9rem, 1.8vw, 2.5rem);
+    text-align: left;
+    animation: fadeUp 750ms ease-out 420ms both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bookWobble {
+    0%, 100% {
+        transform: rotate(-1.5deg) translateY(0);
+    }
+    25% {
+        transform: rotate(1.1deg) translateY(-2px);
+    }
+    50% {
+        transform: rotate(-0.8deg) translateY(1px);
+    }
+    75% {
+        transform: rotate(1.4deg) translateY(-1px);
+    }
+}
+
