@@ -12,6 +12,7 @@
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
+    overflow-x: hidden;
 }
 
 @font-face {
@@ -319,6 +320,61 @@
     }
     75% {
         transform: rotate(1.4deg) translateY(-1px);
+    }
+}
+
+@media (max-width: 700px) {
+    .header {
+        flex-direction: column;
+    }
+
+    .leftHeader,
+    .rightHeader {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .leftHeader {
+        padding-top: 2.5rem;
+    }
+
+    .rightHeader {
+        padding-top: 1.5rem;
+    }
+
+    .signUp {
+        width: 90vw;
+    }
+
+    .signUpImage {
+        left: -5px;
+        top: -30px;
+        width: 55%;
+    }
+
+    .submitImage {
+        right: -5px;
+        width: 45%;
+    }
+
+    .info {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        margin: 10% 0;
+    }
+
+    .leftPaper,
+    .rightPaper {
+        width: 85%;
+        margin: 0;
+    }
+
+    .footer {
+        height: auto;
+        padding: 1.5rem 1rem;
     }
 }
 

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import styles from "./main.module.css";
+
 export default function Home() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
