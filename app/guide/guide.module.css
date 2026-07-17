@@ -1,0 +1,89 @@
+@font-face {
+    font-family: 'ComingSoon';
+    src: url('/ComingSoon.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'ChickenScratch';
+    src: url('/ChickenScratch.ttf') format('truetype');
+}
+
+.page {
+    background: #ffffff;
+    color-scheme: light;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+    color: #111111;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    font-family: 'ComingSoon', sans-serif;
+}
+
+.title {
+    font-family: 'ChickenScratch', sans-serif;
+    font-weight: 700;
+    font-size: 4.5rem;
+    margin: 0;
+}
+
+.heading {
+    font-family: 'ComingSoon', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin: 2.5rem 0 0.75rem;
+}
+
+.list {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin: 0;
+}
+
+.nestedList {
+    list-style: circle;
+    padding-left: 1.5rem;
+    margin-top: 0.4rem;
+}
+
+.images {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 1.5rem 0;
+}
+
+.image {
+    width: 100%;
+    max-width: 340px;
+}
+
+.imageBordered {
+    border: 1px solid #dddddd;
+}
+
+.submit {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.submitText {
+    font-family: 'ChickenScratch', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+.link {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
+}
+
+.link:hover {
+    color: rgb(12, 154, 31);
+}

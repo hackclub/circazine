@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import styles from "./main.module.css";
 
@@ -41,7 +42,7 @@ export default function Home() {
           <p className={styles.subtitle}>spend an afternoon drawing a circuit, <span style={{ textDecoration: "underline" }}>get prizes.</span> </p>
         </div>
         <div className = {styles.rightHeader}>
-          <p>launches july 17th</p>
+          
           <Image
           src="/book.png"
           alt="Book"
@@ -51,24 +52,39 @@ export default function Home() {
         />
         </div>
       </div>
-      <div className={styles.signUp}>
-        <form className={styles.signUpText} onSubmit={handleSubmit}>
-          <div className={styles.signUpImage}>
-        
-        <p> get on the email list! </p>
+      <div className={styles.signUpRow}>
+        <div className={styles.signUp}>
+          <form className={styles.signUpText} onSubmit={handleSubmit}>
+            <div className={styles.signUpImage}>
+
+          <p> get on the email list! </p>
+          </div>
+
+          <input
+            type="email"
+            placeholder={status ==="sent"? "you're on the list!" : "you@email.com"}
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            required
+          />
+          <button type="submit" className={styles.submitImage} disabled={status === "sending"}>
+            <p>{status === "sending" ? "sending..." : "submit"}</p>
+          </button>
+        </form>
         </div>
-      
-        <input
-          type="email"
-          placeholder={status ==="sent"? "you're on the list!" : "you@email.com"}
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          required
-        />
-        <button type="submit" className={styles.submitImage} disabled={status === "sending"}>
-          <p>{status === "sending" ? "sending..." : "submit"}</p>
-        </button>
-      </form>
+        <div className={styles.signUp}>
+          <Link href="/guide" className={styles.signUpText}>
+            <div className={styles.signUpImage}>
+
+          <p> want to make one? </p>
+          </div>
+
+          <p className={styles.guideLinkText}>read the guide</p>
+          <div className={styles.submitImage}>
+            <p>guide</p>
+          </div>
+        </Link>
+        </div>
       </div>
       <div className={styles.info}>
         <div className = {styles.leftPaper}>
@@ -82,16 +98,16 @@ export default function Home() {
           <p>stickers! mini computers! books! and a circazine with your own circuit!</p>
         </div>
         <div className = {styles.rightPaper}>
-          <p>what can i do until launch?</p>
-          <p>1. join the slack<a href="https://app.slack.com/client/E09V59WQY1E/C0BJ4EF228G" target="_blank" rel="noopener noreferrer"> #circazine</a></p>
+          <p>how do i get started?</p>
+          <p>1. follow the <a href="/guide" target="_blank" rel="noopener noreferrer"> guide</a></p>
           <p>2. look at <a href="https://github.com/alaricmoore/MiniEngineeringNotebooks/blob/main/Engineer's%20Mini-Notebook%20-%20Basic%20Semiconductor%20Circuits.pdf" target="_blank" rel="noopener noreferrer">forrest mim's mini engineering notebooks</a></p>
-          <p>3. send lola@hackclub.com your ideas (or a funny joke?) </p>
-          <p>4. wait until july 17th to start drawing!</p>
+          <p>3. come up with a circuit to draw</p>
+         
         </div>
       </div>
       <div className={styles.info}>
         <div className={styles.leftPaper}>
-          <p>after july 17th:</p>
+          <p></p>
           <p>1. draw the circuit on your computer</p>
           <p>2. make sure it works</p>
           <p>3. put it all on a piece of paper</p>

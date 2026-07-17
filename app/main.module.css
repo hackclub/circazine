@@ -115,12 +115,30 @@
     transform-origin: 50% 70%;
 }
 
+.signUpRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    width: 100%;
+}
+
 .signUp {
     width: clamp(18rem, 55vw, 34rem);
-   
+
     display: flex;
     justify-content: center;
     animation: fadeUp 750ms ease-out 260ms both;
+}
+
+.guideLinkText {
+    width: 100%;
+    font-family: 'ComingSoon', sans-serif;
+    font-size: clamp(0.8rem, 1.2vw, 1.5rem);
+    color: #000000;
+    text-align: center;
 }
 
 .signUpText {
